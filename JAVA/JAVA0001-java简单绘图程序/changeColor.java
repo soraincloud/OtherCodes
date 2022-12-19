@@ -9,13 +9,13 @@ import java.awt.event.KeyEvent;
 
 public class changeColor
 {
-    JFrame colorChange = new JFrame("选颜色");
-    JPanel inputPanel = new JPanel();
-    JLabel labelR = new JLabel("R :");
+    JFrame colorChange = new JFrame("选颜色");    //创建页面
+    JPanel inputPanel = new JPanel();    //输入的panel
+    JLabel labelR = new JLabel("R :");    //文字
     JTextField textR = new JTextField(10);
-    JLabel labelG = new JLabel("G :");
+    JLabel labelG = new JLabel("G :");    //文字
     JTextField textG = new JTextField(10);
-    JLabel labelB = new JLabel("B :");
+    JLabel labelB = new JLabel("B :");    //文字
     JTextField textB = new JTextField(10);
 
     private int r = drawPanel.getColorR();
@@ -34,11 +34,11 @@ public class changeColor
     JButton colorExampleWhite = new JButton();
     JButton colorExampleBlack = new JButton();
 
-    JPanel submit = new JPanel();
-    JLabel choose = new JLabel("你选了 :");
-    JButton chooseColor = new JButton();
-    JButton chooseButton = new JButton("试试");
-    JButton submitButton = new JButton("就他了");
+    JPanel submit = new JPanel();    //提交的panel
+    JLabel choose = new JLabel("你选了 :");    //文字
+    JButton chooseColor = new JButton();    //按钮
+    JButton chooseButton = new JButton("试试");    //按钮
+    JButton submitButton = new JButton("就他了");    //按钮
     public changeColor()
     {
         colorChange.setDefaultCloseOperation(2);    //关闭时释放自我
@@ -111,7 +111,7 @@ public class changeColor
         colorChange.pack();
         colorChange.setVisible(true);
     }
-    private class chooseListener implements ActionListener
+    private class chooseListener implements ActionListener    //选择颜色将颜色显示并判断输入值是否超过可用值
     {
         @Override
         public void actionPerformed(ActionEvent e)
@@ -140,7 +140,7 @@ public class changeColor
             chooseColor.setBackground(new Color(r,g,b));
         }
     }
-    private class submitListener implements ActionListener
+    private class submitListener implements ActionListener    //提交颜色 改变界面颜色
     {
         @Override
         public void actionPerformed(ActionEvent e)

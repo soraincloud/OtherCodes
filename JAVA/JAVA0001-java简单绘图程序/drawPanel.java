@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class drawPanel extends JPanel
 {
     //font
-    private Font fonts = new Font("微软雅黑", Font.BOLD, 24);
+    private Font fonts = new Font("微软雅黑", Font.BOLD, 24);    //字体
 
     //buttongroup for up there
     private ButtonGroup BG;
@@ -27,16 +27,12 @@ public class drawPanel extends JPanel
 
     //buttongroup for down there
     private ButtonGroup BGC;
-    private static JRadioButton lined;
-    private static JRadioButton filled;
+    private static JRadioButton lined;    //划线
+    private static JRadioButton filled;    //填充
 
-    //the place of mouse when draw started
-    private int x;
-    private int y;
-
-    private static int colorR = 0;
-    private static int colorG = 0;
-    private static int colorB = 0;
+    private static int colorR = 0;    //颜色R值
+    private static int colorG = 0;    //颜色G值
+    private static int colorB = 0;    //颜色B值
     public drawPanel()
     {
         JPanel pRadioButton = new JPanel();    //按钮组的panel
@@ -78,23 +74,23 @@ public class drawPanel extends JPanel
 
         add(pRadioButton,BorderLayout.WEST);    //按钮组放到西
 
-        delete = new JButton("清空");
+        delete = new JButton("清空");    //创建按钮
 
-        delete.addActionListener(new deleteListener());
+        delete.addActionListener(new deleteListener());    //添加监听
 
-        delete.setBackground(Color.white);
+        delete.setBackground(Color.white);    //设置颜色
 
-        delete.setFont(fonts);
+        delete.setFont(fonts);    //设置字体
 
         pColorButton.add(delete);    //按钮添加panel
 
         color = new JButton("点我选颜色");    //创建按钮
 
-        color.addActionListener(new colorListener());
+        color.addActionListener(new colorListener());    //添加监听
 
-        color.setBackground(Color.white);
+        color.setBackground(Color.white);    //设置颜色
 
-        color.setFont(fonts);    //设置大小
+        color.setFont(fonts);    //设置字体
 
         pColorButton.add(color);    //按钮添加panel
 
@@ -117,30 +113,30 @@ public class drawPanel extends JPanel
 
         add(pDown,BorderLayout.SOUTH);    //pDown放到JFrame的南
     }
-    private class deleteListener implements ActionListener
+    private class deleteListener implements ActionListener    //清空的按钮监听
     {
         public void actionPerformed(ActionEvent event)
         {
             repaint();
         }
     }
-    private class colorListener implements ActionListener
+    private class colorListener implements ActionListener    //选择颜色的按钮监听
     {
         public void actionPerformed(ActionEvent event)
         {
             new changeColor();
         }
     }
-    public static void changeColor(int r,int g,int b)
+    public static void changeColor(int r,int g,int b)    //外部改变颜色
     {
         colorR = r;
         colorG = g;
         colorB = b;
     }
-    public static int getColorR(){return colorR;}
-    public static int getColorG(){return colorG;}
-    public static int getColorB(){return colorB;}
-    public static int getDrawThings()
+    public static int getColorR(){return colorR;}    //外部获取颜色R
+    public static int getColorG(){return colorG;}    //外部获取颜色G
+    public static int getColorB(){return colorB;}    //外部获取颜色B
+    public static int getDrawThings()    //获取画图类型
     {
         if(pencil.isSelected()) {return 0;}
         if(line.isSelected()) {return 1;}
@@ -150,7 +146,7 @@ public class drawPanel extends JPanel
         if(sector.isSelected()) {return 5;}
         else return 0;
     }
-    public static int getDrawWay()
+    public static int getDrawWay()    //获取画图样式
     {
         if(lined.isSelected()){return 0;}
         if(filled.isSelected()){return 1;}
